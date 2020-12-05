@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kniga.by</title>
+    <!-- Fonts -->
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+    <!-- CSS -->
+    <script src="https://unpkg.com/vue"></script>
+    <link href="style.css" rel="stylesheet">
+    <meta name="robots" content="noindex,follow" />
+
+  </head>
+
+  <body>
+    <div class="div1" id="app">
+      <header><!-- Defining the header section of the page -->
+
+        <nav><!-- Defining the navigation menu -->
+            <ul>
+                <li class="selected"><a href="./index.html">Главная</a></li>
+                <li><a href="#">Акции</a></li>
+                <li><a href="./catalog.html">Каталог</a></li>
+                <li><a href="./contacs.html">О нас</a></li>
+            </ul>
+        </nav>
+
+
+
+        <div class="top_head"><!-- Defining the top head element -->
+            <div class="logo"><!-- Defining the logo element -->
+                <a href="#">
+                    <img src="1.jpg" class="logo1"  />
+                </a>
+                <hr class="lel">
+                <h6 class="hhh">Читай как в последний раз</h6>
+            </div>
+
+            <section id="search"><!-- Search form -->
+              <form action="#" onsubmit="return false;" method="get">
+                <input type="text" onfocus="if (this.value =='Поиск..' ) this.value=''" onblur="if (this.value=='') this.value='Поиск..'" value="Поиск.." name="q">
+                <input type="submit" value="Поиск">
+            </form>
+
+            <ul id="social"><!-- Social profiles links -->
+              <li><a href="#" title="facebook" rel="external nofollow"><img alt="" src="images/facebook.png"></a></li>
+              <li><a href="#" title="instagram" rel="external nofollow"><img alt="" src="images/instagram.png"></a></li>
+              <li><a href="#" title="vk" rel="external nofollow"><img alt="" src="images/vk.png"></a></li>
+              <li><a href="#" title="odnakls" rel="external nofollow"><img alt="" src="images/odnoklassniki-logo.png"></a></li>
+          </ul>
+            </section>
+        </div>
+    </header>
+    <div class="containerd">
+      
+      
+      <!-- Left Column / Headphones Image -->
+      <div class="left-column">
+        <img data-image="black" src="images/kniga.jpg" alt="">
+        <img data-image="blue" src="images/blue.png" alt="">
+        <img data-image="red" class="active" src="images/red.png" alt="">
+      </div>
+
+
+      <!-- Right Column -->
+      <div class="right-column">
+
+        <!-- Product Description -->
+        <div class="product-description">
+          <span class="text1">Книга</span>
+          <h1 class="text2">Книга</h1>
+          <p class="text3">Описание книги</p>
+        </div>
+
+        <!-- Product Configuration -->
+        <div class="product-configuration">
+
+          <!-- Product Color -->
+          <div class="product-color">
+
+
+            <div class="color-choose">
+
+
+          </div>
+
+          <!-- Cable Configuration -->
+          <div class="cable-config">
+            <span>Переплет</span>
+
+            <div class="cable-choose">
+              <button>Твердый</button>
+              <button>Мягкий</button>
+              <button>E-Book</button>
+            </div>
+
+            <a href="#">Выберете переплет книги</a>
+          </div>
+        </div>
+
+        <!-- Product Pricing -->
+        <div class="product-price">
+          <span>{{price}} руб</span>
+          <a href="#" class="cart-btn">В корзину</a>
+          
+
+        </div>
+        
+
+          <button v-on:click="addToCart" id="baton1">+1</button>
+          <button v-on:click="deleteFromCart" id="baton2">-1</button>
+    <div class="cart">
+      <p id="cifra">В корзине: {{cart}}</p>
+    </div>
+  
+      </div>
+    </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+         
+          instock: false,
+         
+         
+          cart:0,
+          price:50,
+        },
+        methods: {
+    addToCart() {
+      this.cart += 1;
+      this.price = this.price +123;
+    },
+    deleteFromCart(){
+      if (this.cart >0) {
+        this.cart -=1;
+        this.price = this.price - 123;
+      }
+    },
+  }
+})
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+    <script src="./js/script.js" charset="utf-8"></script>
+  </body>
+</html>
